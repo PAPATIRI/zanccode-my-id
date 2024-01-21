@@ -1113,3 +1113,5 @@ java.lang.AssertionError
 2024-01-14 23:16:35,471 [17817729] SEVERE - #c.i.i.p.PluginManager - JDK: 17.0.9; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
 2024-01-14 23:16:35,471 [17817729] SEVERE - #c.i.i.p.PluginManager - OS: Linux
 2024-01-14 23:16:35,471 [17817729] SEVERE - #c.i.i.p.PluginManager - Last Action: EditorEnter
+2024-01-14 23:39:46,026 [19208284]   WARN - org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint - Unsupported notification method: @/tailwindCSS/projectsDestroyed
+2024-01-14 23:39:46,082 [19208340]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /home/zancc/.nvm/versions/node/v18.17.0/bin/node /home/zancc/.local/share/JetBrains/Toolbox/apps/phpstorm/plugins/tailwindcss/server/tailwindcss-language-server

@@ -1,8 +1,8 @@
 @props(['post'])
 <div>
     <a href="#">
-        <div>
-            <img alt="thumbnail" class="w-full rounded-xl" src="{{$post->image}}">
+        <div class="w-full overflow-hidden h-[200px] rounded-xl bg-gray-400 flex items-center justify-center">
+            <img alt="thumbnail" class="w-full object-cover" src="{{$post->image}}">
         </div>
     </a>
     <div class="mt-3">

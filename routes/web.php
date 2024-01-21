@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\HomeController::class)->name('/'); // invokable controller jadi tanpa [] dan nama method class nya
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home'); // invokable controller jadi tanpa [] dan nama method class nya
+Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+//    Route::get('/dashboard', function () {
+//        return view('dashboard');
+//    })->name('dashboard');
 });
