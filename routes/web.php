@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home'); // invokable controller jadi tanpa [] dan nama method class nya
 Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::get('/blog/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
 Route::middleware([
     'auth:sanctum',

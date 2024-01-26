@@ -18,4 +18,11 @@ class PostController extends Controller
             })->take(10)->get()
         ]);
     }
+
+    public function show(Post $post) // $post sesuaikan di web.php route {post:slug}
+    {
+        return view('posts.show', [
+            'post' => $post
+        ]);
+    }
 }

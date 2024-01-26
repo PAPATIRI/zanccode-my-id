@@ -1,4 +1,4 @@
-<button wire:loading.attr="disabled" wire:click="toggleLike()" href="" class="flex items-center">
+<button wire:loading.attr="disabled" wire:click="toggleLike()" class="flex items-center">
     <p wire:loading.delay class="text-sm text-gray-600">loading...</p>
     <svg wire:loading.delay.remove xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
          stroke="currentColor"

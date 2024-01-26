@@ -40,7 +40,7 @@ class PostResource extends Resource
                     Forms\Components\FileUpload::make('image')->image()->directory('posts/thumbnails')->visibility('public'),
                     Forms\Components\DateTimePicker::make('published_at')->nullable(),
                     Forms\Components\Checkbox::make('featured'),
-                    Forms\Components\Select::make('author')->relationship('author', 'name')->searchable()->required(),
+                    Forms\Components\Select::make('user_id')->relationship('author', 'name')->searchable()->required(),
                     Forms\Components\Select::make('categories')->multiple()->relationship('categories', 'title')->searchable(),
                 ]),
             ]);
