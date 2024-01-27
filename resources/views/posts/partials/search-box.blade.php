@@ -1,4 +1,4 @@
-<div x-data="{query: '{{request('search', '')}}'}" id="search-box">
+<div x-on:keyup.enter="$dispatch('search', {search:query})" x-data="{query: '{{request('search', '')}}'}" id="search-box">
     <div>
         <h3 class="text-lg font-semibold text-gray-900 mb-3">Cari artikel</h3>
         <div class="w-fit flex rounded-xl bg-gray-100 py-2 px-3 mb-3 items-center">

@@ -1,7 +1,7 @@
 @push('css')
     <link rel="stylesheet" href="{{asset("css/custom-style.css")}}">
 @endpush
-<x-app-layout>
+<x-app-layout :title="$post->title">
     <article class="col-span-4 md:col-span-3 mt-10 mx-auto py-5 w-full max-w-2xl">
         <div class="w-full mb-4 h-[200px] md:h-[300px] overflow-hidden rounded-xl flex items-center">
             <img class="object-cover" src="{{$post->getThumbnailImage()}}" alt="">
