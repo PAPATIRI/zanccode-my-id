@@ -1,5 +1,5 @@
 @props(['post'])
-<article class="[&:not(:last-child)]:border-gray-100 pb-10">
+<article {{ $attributes->merge(['class' => '[&:not(:last-child)]:border-gray-100 pb-10']) }}>
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
             <a wire:navigate href="{{route('posts.show', $post->slug)}}"
@@ -27,9 +27,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex items-center gap-2">
-                        <p class="text-gray-600">{{$post->likes()->count() > 1 ? $post->likes()->count().' likes' : $post->likes()->count().' like'}}</p>
-                    </div>
+                    <livewire:like-button :key="'likebutton-'.$post->id" :$post/>
                 </div>
             </div>
         </div>

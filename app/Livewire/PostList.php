@@ -36,7 +36,8 @@ class PostList extends Component
         $this->resetPage();
     }
 
-    public function clearFilters(){
+    public function clearFilters()
+    {
         $this->search = '';
         $this->category = '';
         $this->resetPage();
@@ -46,6 +47,7 @@ class PostList extends Component
     public function posts()
     {
         return Post::published()
+            ->with('author', 'categories')
             ->when($this->popular, function ($query) {
                 $query->popular();
             })
@@ -54,11 +56,16 @@ class PostList extends Component
             })
             ->search($this->search)
             ->orderBy('published_at', $this->sort)
-            ->paginate(5);
+            ->paginate(3);
     }
 
     #[Computed()]
-    public function activeCategory(){
+    public function activeCategory()
+    {
+        //query improvement
+        if ($this->category === null || $this->category === '') {
+            return null;
+        }
         return Category::where('slug', $this->category)->first();
     }
 

@@ -19,7 +19,7 @@ class PostComments extends Component
     #[Computed()]
     public function comments()
     {
-        return $this?->post?->comments()->latest()->paginate(5);
+        return $this?->post?->comments()->latest()->with('user')->paginate(5);
     }
 
     public function postComment(){

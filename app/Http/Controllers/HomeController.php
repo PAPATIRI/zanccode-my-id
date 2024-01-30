@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,8 +13,8 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         return view('home', [
-            'featuredPost'=> Post::published()->featured()->latest('published_at')->take(3)->get(),
-            'latestPost'=> Post::published()->latest('published_at')->take(6)->get(),
+            'featuredPost' => Post::published()->featured()->with('categories')->latest('published_at')->take(3)->get(),
+            'latestPost' => Post::published()->with('categories')->latest('published_at')->take(6)->get(),
         ]);
     }
 }
