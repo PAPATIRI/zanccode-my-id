@@ -22,7 +22,6 @@ class LikeButton extends Component
             return;
         }
         $user->likes()->attach($this->post);
-
     }
 
     public function render()

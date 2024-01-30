@@ -12,9 +12,12 @@ h2,h3 {
 }
 
 pre{
-    background-color: lightgray;
+    color: #fefefe;
     border-radius: 8px;
+    font-size: 15px;
+    overflow-x: auto;
     padding: 8px 8px;
+    background: linear-gradient(to bottom right, rgba(68, 8, 121, 1) 0%, rgba(9, 17, 46, 1) 100%);
 }
 
 figcaption{

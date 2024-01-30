@@ -2,7 +2,8 @@
 <article class="[&:not(:last-child)]:border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
-            <a wire:navigate href="{{route('posts.show', $post->slug)}}" class="w-full h-[150px] lg:h-[200px] overflow-hidden bg-gray-400 rounded-xl flex items-center">
+            <a wire:navigate href="{{route('posts.show', $post->slug)}}"
+               class="w-full h-[150px] lg:h-[200px] overflow-hidden bg-gray-400 rounded-xl flex items-center">
                 <img src="{{$post->getThumbnailImage()}}" class="w-full h-[100%] object-cover rounded-xl"
                      alt="thumbnailpost">
             </a>
@@ -26,8 +27,9 @@
                     </div>
                 </div>
                 <div>
-                    {{-- :$post sama dengan :post="$post" --}}
-                    <livewire:like-button :key="$post->id" :$post/>
+                    <div class="flex items-center gap-2">
+                        <p class="text-gray-600">{{$post->likes()->count() > 1 ? $post->likes()->count().' likes' : $post->likes()->count().' like'}}</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,9 @@
         <div class="flex justify-between items-center border-b border-gray-100">
             <div class="flex items-center gap-4">
                 @if($search || $this->activeCategory)
-                    <button wire:click="clearFilters()" class="text-red-600 font-bold bg-gray-100 px-2.5 py-0.5 rounded">x</button>
+                    <button wire:click="clearFilters()"
+                            class="text-red-600 font-bold bg-gray-100 px-2.5 py-0.5 rounded">x
+                    </button>
                 @endif
                 @if($this->activeCategory)
                     <div>
@@ -20,6 +22,10 @@
                 @endif
             </div>
             <div id="filter-selector" class="flex items-center space-x-4 font-light">
+                <div class="flex items-center gap-2">
+                    <x-checkbox wire:model.live="popular"/>
+                    <x-label>Popular</x-label>
+                </div>
                 <button wire:click="setSort('desc')"
                         class="{{$sort === 'desc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500'}} py-4">
                     Latest
@@ -32,7 +38,7 @@
         </div>
         <div class="py-4">
             @foreach($this->posts as $post)
-                <x-posts.post-item :post="$post"/>
+                <x-posts.post-item wire:key="post-{{$post->id}}" :post="$post"/>
             @endforeach
         </div>
         <div class="my-3">

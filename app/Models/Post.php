@@ -55,6 +55,17 @@ class Post extends Model
         $query->where('featured', true);
     }
 
+    public function scopePopular($query)
+    {
+        //like count by relationship likes Post had
+        $query->withCount('likes')
+            //order by like count, likes->relationship name, _ , count->action query
+            ->orderBy("likes_count", 'desc');
+    }
+    public function scopeSearch($query, $search = ''){
+        $query->where('title', 'like', "%$search%" );
+    }
+
     public function getReadingTime()
     {
         $minutes = round(str_word_count($this->body) / 250);

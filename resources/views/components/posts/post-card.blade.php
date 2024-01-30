@@ -6,11 +6,13 @@
         </div>
     </a>
     <div class="mt-3">
-        <div class="flex items-center gap-2 mb-2">
+        <div class="flex items-center justify-between mb-2">
+            <div class="flex-items-center gap-2">
             @foreach($post->categories as $category)
                 <x-posts.category-badge :category="$category"/>
             @endforeach
-            <p class="text-gray-500 text-sm">{{$post->published_at}}</p>
+            </div>
+            <p class="text-gray-500 text-sm">{{$post->published_at->diffForHumans()}}</p>
         </div>
         <a wire:navigate href="{{route('posts.show', $post->slug)}}" class="text-xl font-bold text-gray-900">{{$post->title}}</a>
     </div>

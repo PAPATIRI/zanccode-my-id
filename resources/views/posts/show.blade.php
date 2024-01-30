@@ -21,25 +21,16 @@
                 </svg>
             </div>
         </div>
-        <div class="article-actions-bar my-6 flex text-sm items-center justify-between border-t border-b border-gray-100 py-4 px-2">
-            <livewire:like-button :key="'likebutton-'.$post->id" :$post/>
-            <div class="flex items-center">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.3"
-                         stroke="currentColor" class="w-6 h-6 text-gray-500 hover:text-gray-800">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
         <div class="article-content py-3 text-gray-800 text-lg">
             {!! $post->body !!}
         </div>
-        <div class="flex items-center mt-10 space-x-4">
+        <div class="flex items-center justify-between mt-10 space-x-4">
+            <div class="flex items-center gap-4">
             @foreach($post->categories as $category)
                 <x-posts.category-badge :category="$category"/>
             @endforeach
+            </div>
+            <livewire:like-button :key="'likebutton-'.$post->id" :$post/>
         </div>
         <livewire:post-comments :key="'comments-'.$post->id" :$post/>
     </article>
