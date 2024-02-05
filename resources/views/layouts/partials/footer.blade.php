@@ -1,6 +1,8 @@
-<footer class="text-sm space-x-4 flex items-center border-t border-gray-100 flex-wrap justify-center py-4 ">
-    <a class="text-gray-500 hover:text-yellow-500" href="">About Us</a>
-    <a class="text-gray-500 hover:text-yellow-500" href="">Help</a>
-    <a class="text-gray-500 hover:text-yellow-500" href="">Login</a>
-    <a class="text-gray-500 hover:text-yellow-500" href="">Explore</a>
+<footer class="text-base space-x-4 flex items-center border-t border-gray-100 flex-wrap justify-center py-4 ">
+    <a class="text-gray-500 hover:text-yellow-500" href="{{route('home')}}">{{__('menu.home')}}</a>
+    <a class="text-gray-500 hover:text-yellow-500" href="{{route('posts.index')}}">{{__('menu.blog')}}</a>
+    <a class="text-gray-500 hover:text-yellow-500" href="">{{__('About Me')}}</a>
+    @if(!auth()->user())
+        <a class="text-gray-500 hover:text-yellow-500" href="{{route('login')}}">{{__('menu.login')}}</a>
+    @endif
 </footer>

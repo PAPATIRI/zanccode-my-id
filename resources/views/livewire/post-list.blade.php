@@ -9,7 +9,6 @@
                 @endif
                 @if($this->activeCategory)
                     <div>
-                        <p class="text-base inline-block text-gray-700">Kategori: </p>
                         <x-badge wire:navigate
                                  href="{{route('posts.index', ['category'=>$this->activeCategory->slug])}}"
                                  :textColor="$this->activeCategory->text_color"
@@ -17,23 +16,20 @@
                     </div>
                 @endif
                 @if($search)
-                    <p class="text-gray-700">Keyword Pencarian: <span class="font-bold text-gray-800">{{$search}}</span>
+                        <p class="text-gray-700">{{__('blog.keyword')}}: <span
+                                    class="font-bold text-gray-800">{{$search}}</span>
                     </p>
                 @endif
             </div>
             <div id="filter-selector" class="flex items-center space-x-4 font-light">
                 <div class="flex items-center gap-2">
                     <x-checkbox wire:model.live="popular"/>
-                    <x-label>Popular</x-label>
+                    <x-label>{{__('blog.popular')}}</x-label>
                 </div>
                 <button wire:click="setSort('desc')"
-                        class="{{$sort === 'desc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500'}} py-4">
-                    Latest
-                </button>
+                        class="{{$sort === 'desc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500'}} py-4">{{__('blog.latest')}}</button>
                 <button wire:click="setSort('asc')"
-                        class="{{$sort === 'asc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500'}} py-4">
-                    Oldest
-                </button>
+                        class="{{$sort === 'asc' ? 'text-gray-900 border-b border-gray-700': 'text-gray-500'}} py-4">{{__('blog.oldest')}}</button>
             </div>
         </div>
         <div class="py-4">
