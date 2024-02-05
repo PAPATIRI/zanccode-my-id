@@ -83,7 +83,6 @@ return [
     |
     */
 
-//    'locale' => 'en',
     'locale' => 'id',
 
     /*
@@ -98,6 +97,16 @@ return [
     */
 
     'fallback_locale' => 'en',
+    'supported_locales' => [
+        'en' => [
+            'name' => 'english',
+            'icon' => 'en'
+        ],
+        'id' => [
+            'name' => 'indonesia',
+            'icon' => 'id'
+        ]
+    ],
 
     /*
     |--------------------------------------------------------------------------
