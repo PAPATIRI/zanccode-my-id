@@ -1,3 +1,3 @@
-<div class="text-gray-800 font-semibold text-xl">
-  <span class="text-yellow-500">zanc</span>code
+<div class="text-zinc-800 font-bold text-2xl">
+  <span class="text-indigo-500">zanc</span>code
 </div>

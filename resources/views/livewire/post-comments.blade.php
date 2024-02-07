@@ -10,16 +10,16 @@
             Kirim Komentar
         </button>
     @else
-        <a wire:navigate href="{{route('login')}}" class="text-yellow-500 underline py-1">Login to Post Comment</a>
+        <a wire:navigate href="{{route('login')}}" class="text-indigo-500 underline py-1">Login to Post Comment</a>
     @endauth
     <div class="user-comments px-3 py-2 mt-5">
         @forelse($this->comments as $comment)
             <div class="comment border-gray-100 py-5 [&:not(:last-child)]:border-b">
-                <div class="user-meta flex gap-2 mb-4 text-sm items-center">
+                <div class="user-meta flex gap-2 mb-4 text-base items-center">
                     <x-posts.author :author="$comment->user" size="sm"/>
                     <span class="text-gray-500">{{$comment->created_at->diffForHumans()}}</span>
                 </div>
-                <div class="text-justify text-gray-700 text-sm">{{$comment->comment}}</div>
+                <div class="text-justify text-gray-700 text-lg">{{$comment->comment}}</div>
             </div>
         @empty
             <div class="text-gray-500 text-center">

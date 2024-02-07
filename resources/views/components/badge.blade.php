@@ -11,4 +11,4 @@
     };
 @endphp
 
-<button {{$attributes}} class="{{$textColor}} bg-gray-100 rounded-md px-3 py-1 font-medium text-base">{{$slot}}</button>
+<button {{$attributes}} class="{{$textColor}} bg-slate-100 rounded-md px-3 py-1 font-medium text-base">{{$slot}}</button>

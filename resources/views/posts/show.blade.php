@@ -21,7 +21,7 @@
                 </svg>
             </div>
         </div>
-        <div class="article-content py-3 text-gray-800 text-lg">
+        <div class="article-content py-3 text-slate-800 text-lg md:text-xl">
             {!! $post->body !!}
         </div>
         <div class="flex items-center justify-between mt-10 space-x-4">

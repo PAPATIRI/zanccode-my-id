@@ -31,7 +31,7 @@
 
         <x-slot name="content">
             <!-- Account Management -->
-            <div class="block px-4 py-2 text-xs text-gray-400">
+            <div class="block px-4 py-2 text-sm text-zinc-500">
                 {{ __('menu.manage_account') }}
             </div>
 
@@ -51,7 +51,7 @@
             <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf
 
-                <x-dropdown-link class="text-red-500" href="{{ route('logout') }}"
+                <x-dropdown-link class="hover:bg-red-500/80 hover:text-zinc-100 hover:font-medium" href="{{ route('logout') }}"
                                  @click.prevent="$root.submit();">
                     {{ __('menu.logout') }}
                 </x-dropdown-link>
