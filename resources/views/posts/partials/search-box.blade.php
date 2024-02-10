@@ -10,7 +10,7 @@
                             </svg>
                         </span>
             <input x-model="query" type="text" placeholder="{{__('blog.search_placeholder')}}"
-                   class="w-40 ml-1 bg-transparent focus:outline-none focus:border-none focus:ring-0 outline-none border-none text-sm text-gray-800 placeholder:text-gray-400">
+                   class="w-full ml-1 bg-transparent focus:outline-none focus:border-none focus:ring-0 outline-none border-none text-sm text-gray-800 placeholder:text-gray-400">
             <x-button x-on:click="$dispatch('search', {search:query})" class="bg-slate-700" type="submit">Cari</x-button>
         </div>
     </div>
