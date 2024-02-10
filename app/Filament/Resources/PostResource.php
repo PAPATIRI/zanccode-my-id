@@ -38,7 +38,7 @@ class PostResource extends Resource
                 ])->columns(2),
                 Forms\Components\Section::make('Meta')->schema([
                     Forms\Components\FileUpload::make('image')->image()->directory('posts/thumbnails')->visibility('public'),
-                    Forms\Components\DateTimePicker::make('published_at')->nullable(),
+                    Forms\Components\DateTimePicker::make('published_at')->native(false)->nullable(),
                     Forms\Components\Checkbox::make('featured'),
                     Forms\Components\Select::make('user_id')->relationship('author', 'name')->searchable()->required(),
                     Forms\Components\Select::make('categories')->multiple()->relationship('categories', 'title')->searchable(),

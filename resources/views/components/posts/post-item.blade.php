@@ -1,15 +1,22 @@
 @props(['post'])
 <article {{ $attributes->merge(['class' => '[&:not(:last-child)]:border-gray-100 pb-10']) }}>
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
-        <div class="article-thumbnail col-span-4 flex items-center">
+        <div class="hidden md:flex article-thumbnail col-span-4 items-center">
             <a wire:navigate href="{{route('posts.show', $post->slug)}}"
                class="w-full h-[150px] lg:h-[200px] overflow-hidden bg-gray-400 rounded-xl flex items-center">
                 <img src="{{$post->getThumbnailImage()}}" class="w-full h-[100%] object-cover rounded-xl"
                      alt="thumbnailpost">
             </a>
         </div>
-        <div class="col-span-8">
-            <div class="article-meta flex py-1 text-sm items-center gap-2">
+        <div class="col-span-12 md:col-span-8">
+            <div class="article-thumbnail flex md:hidden items-center">
+                <a wire:navigate href="{{route('posts.show', $post->slug)}}"
+                   class="w-full h-[150px] lg:h-[200px] overflow-hidden bg-gray-400 rounded-xl flex items-center">
+                    <img src="{{$post->getThumbnailImage()}}" class="w-full h-[100%] object-cover rounded-xl"
+                         alt="thumbnailpost">
+                </a>
+            </div>
+            <div class="article-meta flex py-1 text-sm items-center justify-between">
                 <x-posts.author :author="$post->author" size="sm"/>
                 <span class="text-gray-500 text-base">{{$post->published_at->diffForHumans()}}</span>
             </div>

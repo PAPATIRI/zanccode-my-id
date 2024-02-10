@@ -31,8 +31,9 @@
             </div>
 
             {{--mobile navbar --}}
-            <div class="fixed bg-slate-900/40 top-0 left-0 h-full w-full z-30 filter blur-xs backdrop-filter backdrop-blur-sm" x-show="isOpen"></div>
-            <div class="bg-indigo-300 p-4 fixed z-50 right-0 top-0 w-[50%] h-screen bg-slate-100" x-show="isOpen"
+            <div class="bg-slate-900/40 fixed right-0 top-0 h-full w-full z-30 filter blur-xs backdrop-filter backdrop-blur-sm"
+                 x-show="isOpen" x-cloak></div>
+            <div class="bg-indigo-300 p-4 fixed right-0 z-50 top-0 w-[50%] h-screen bg-slate-100" x-cloak x-show="isOpen"
                  @click.away="isOpen=!isOpen">
                 <div class="w-full text-right">
                     <button @click="isOpen=!isOpen">
@@ -63,7 +64,9 @@
                         <x-nav-link wire:navigate href="{{route('profile.show')}}">{{__('menu.profile')}}</x-nav-link>
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf
-                            <x-nav-link class="text-slate-100 rounded p-2 bg-red-500 hover:text-slate-100" href="{{route('logout')}}" @click.prevent="$root.submit();">{{__('menu.logout')}}</x-nav-link>
+                            <x-nav-link class="text-slate-100 rounded p-2 bg-red-500 hover:text-slate-100"
+                                        href="{{route('logout')}}"
+                                        @click.prevent="$root.submit();">{{__('menu.logout')}}</x-nav-link>
                         </form>
                     @else
                         <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
@@ -77,5 +80,4 @@
             </div>
         </div>
     </nav>
-
 </div>
