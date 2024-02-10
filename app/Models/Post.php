@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +13,16 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['user_id', 'title', 'slug', 'image', 'body', 'published_at', 'featured'];
+    protected $fillable = ['user_id', 'title', 'slug', 'image', 'body', 'published_at', 'featured', 'status'];
+
+    const PUBLISHED='PUBLISHED';
+    const DRAFT='DRAFT';
+
+    const STATUS_DEFAULT=self::DRAFT;
+    const STATUS=[
+        self::PUBLISHED => 'Published',
+        self::DRAFT=>'Draft'
+    ];
 
     public function author()
     {
@@ -40,7 +48,7 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        $query->where('published_at', '<=', Carbon::now());
+        $query->where('status', '=', self::PUBLISHED);
     }
 
     public function scopeWithCategory($query, string $category)

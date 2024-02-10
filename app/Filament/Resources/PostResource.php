@@ -42,6 +42,7 @@ class PostResource extends Resource
                     Forms\Components\Checkbox::make('featured'),
                     Forms\Components\Select::make('user_id')->relationship('author', 'name')->searchable()->required(),
                     Forms\Components\Select::make('categories')->multiple()->relationship('categories', 'title')->searchable(),
+                    Forms\Components\Select::make('status')->options(Post::STATUS)->required()
                 ]),
             ]);
     }
