@@ -51,7 +51,7 @@
             <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf
 
-                <x-dropdown-link class="hover:bg-red-500/80 hover:text-zinc-100 hover:font-medium" href="{{ route('logout') }}"
+                <x-dropdown-link class="hover:bg-red-500/80 hover:text-zinc-100 hover:font-medium font-sans text-base" href="{{ route('logout') }}"
                                  @click.prevent="$root.submit();">
                     {{ __('menu.logout') }}
                 </x-dropdown-link>

@@ -5,7 +5,6 @@ return [
     "more_post"=>"Selengkapnya",
     "hero"=>[
         "title"=>'Selamat Datang di',
-        "desc"=>'dimana programming terasa menyenangkan',
         "cta"=>"Mulai Membaca"
     ]
 ];

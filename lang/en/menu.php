@@ -6,6 +6,7 @@ return [
     'login'=>'Login',
     'register'=>'Register',
     'manage_account'=>"Manage Account",
+    'about_me'=>'About Me',
     'profile'=>'Profile',
     'logout'=>'Log Out',
 ];

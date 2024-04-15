@@ -1,7 +1,7 @@
 <div x-data="{isOpen: false}">
     <nav class="py-3 px-6 border-b border-slate-300 flex justify-center">
         <div class="w-full max-w-6xl flex items-center justify-between">
-            <a href="{{route('home')}}">
+            <a href="{{route('home')}}" class="font-serif">
                 <x-application-mark/>
             </a>
             <button class="lg:hidden" @click="isOpen=!isOpen">
@@ -13,12 +13,15 @@
             {{--desktop navbar--}}
             <div class="hidden lg:flex w-full items-center justify-between">
                 <div></div>
-                <div id="nav-left" class="flex items-center gap-3">
+                <div id="nav-left" class="flex items-center gap-6 font-sans">
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('menu.home') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('menu.blog') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('about-me') }}" :active="request()->routeIs('about-me')">
+                        {{ __('menu.about_me') }}
                     </x-nav-link>
                 </div>
                 <div id="nav-right" class="flex items-center">
@@ -33,7 +36,7 @@
             {{--mobile navbar --}}
             <div class="bg-slate-900/40 fixed right-0 top-0 h-full w-full z-30 filter blur-xs backdrop-filter backdrop-blur-sm"
                  x-show="isOpen" x-cloak></div>
-            <div class="bg-indigo-300 p-4 fixed right-0 z-50 top-0 w-[50%] h-screen bg-slate-100" x-cloak x-show="isOpen"
+            <div class="bg-indigo-300 px-8 py-4 fixed right-0 z-50 top-0 w-[75%] h-screen bg-slate-100" x-cloak x-show="isOpen"
                  @click.away="isOpen=!isOpen">
                 <div class="w-full text-right">
                     <button @click="isOpen=!isOpen">
@@ -43,12 +46,15 @@
                         </svg>
                     </button>
                 </div>
-                <div class="flex flex-col gap-3 text-lg">
+                <div class="flex flex-col gap-3 font-sans">
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('menu.home') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('menu.blog') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('about-me') }}" :active="request()->routeIs('about-me')">
+                        {{ __('menu.about_me') }}
                     </x-nav-link>
                     @can('viewAdmin', \App\Models\User::class)
                         <x-nav-link :navigate='false' href="{{ route('filament.admin.auth.login') }}"

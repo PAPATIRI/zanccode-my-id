@@ -16,6 +16,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/favicon-16x16.png')}}">
     <link rel="manifest" href="{{asset('/site.webmanifest')}}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -23,12 +27,12 @@
     @stack('css')
     @livewireStyles
 </head>
-<body class="font-sans antialiased bg-slate-200">
+<body class="font-sans antialiased bg-slate-200 flex flex-col min-h-screen">
 <x-banner/>
 @include('layouts.partials.header')
 
 @yield('hero')
-<main class="container max-w-3xl lg:max-w-6xl mx-auto px-5 flex flex-grow">
+<main class="container max-w-3xl lg:max-w-6xl mx-auto px-5 flex-1">
     {{$slot}}
 </main>
 

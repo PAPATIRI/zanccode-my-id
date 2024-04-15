@@ -6,6 +6,7 @@ return [
     'login'=>'Masuk',
     'register'=>'Daftar',
     'manage_account'=>"Manajemen Akun",
+    'about_me'=>'Tentang Saya',
     'profile'=>'Profil',
     'logout'=>'Keluar',
 ];

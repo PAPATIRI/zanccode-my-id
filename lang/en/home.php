@@ -5,7 +5,6 @@ return [
     "more_post"=>"More Post",
     "hero"=>[
         "title"=>'Welcome to',
-        "desc"=>'where programming is fun',
         "cta"=>"Start Reading"
     ]
 ];

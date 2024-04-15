@@ -8,7 +8,7 @@
     </div>
     <a class="text-gray-500 hover:text-yellow-500" href="{{route('home')}}">{{__('menu.home')}}</a>
     <a class="text-gray-500 hover:text-yellow-500" href="{{route('posts.index')}}">{{__('menu.blog')}}</a>
-    <a class="text-gray-500 hover:text-yellow-500" href="">{{__('About Me')}}</a>
+    <a class="text-gray-500 hover:text-yellow-500" href="{{route('about-me')}}">{{__('About Me')}}</a>
     @if(!auth()->user())
         <a class="text-gray-500 hover:text-yellow-500" href="{{route('login')}}">{{__('menu.login')}}</a>
     @endif

@@ -1,4 +1,4 @@
-<div class="flex space-x-5 text-lg">
+<div class="flex space-x-5 text-base font-sans">
     <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
         {{ __('menu.login') }}
     </x-nav-link>

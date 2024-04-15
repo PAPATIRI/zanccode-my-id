@@ -1,17 +1,20 @@
-h2{
-    font-size: 24px;
-}
-
-h3{
+h2 {
     font-size: 22px;
+    font-family: 'Noto Serif';
 }
 
-h2,h3 {
+h3 {
+    font-size: 20px;
+    font-family: 'Noto Serif';
+}
+
+h2, h3 {
     font-weight: bold;
     margin-bottom: 5px;
+    font-family: 'Noto Serif';
 }
 
-pre{
+pre {
     color: #fefefe;
     border-radius: 8px;
     font-size: 15px;
@@ -20,13 +23,19 @@ pre{
     background: linear-gradient(to bottom right, rgba(68, 8, 121, 1) 0%, rgba(9, 17, 46, 1) 100%);
 }
 
-figcaption{
+.content-text p {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+}
+
+figcaption {
     font-size: 14px;
+    font-family: 'Lato', sans-serif;
 }
 
 @keyframes handAnimation {
     0% {
-        transform: rotate( 0.0deg)
+        transform: rotate(0.0deg)
     }
     10% {
         transform: rotate(14.0deg)
@@ -44,14 +53,14 @@ figcaption{
         transform: rotate(10.0deg)
     }
     60% {
-        transform: rotate( 0.0deg)
+        transform: rotate(0.0deg)
     }
     100% {
-        transform: rotate( 0.0deg)
+        transform: rotate(0.0deg)
     }
 }
 
-.custom-animation{
+.custom-animation {
     position: relative;
     animation-name: handAnimation;
     animation-duration: 3s;
