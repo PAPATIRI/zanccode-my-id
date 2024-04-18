@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home'); // invokable controller jadi tanpa [] dan nama method class nya
 Route::get('/blog', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
-Route::get('/about-me', function(){
+Route::get('/about-me', function () {
     return view('about');
 })->name('about-me');
 Route::get('/blog/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
@@ -31,7 +31,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-//    Route::get('/dashboard', function () {
-//        return view('dashboard');
-//    })->name('dashboard');
+    Route::get('/admin/dashboard',[\App\Http\Controllers\Admin\DashboardController::class, 'index'] )->name('admin.dashboard');
+    Route::get('/admin/post', [\App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.post');
 });

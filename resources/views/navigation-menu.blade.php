@@ -57,8 +57,8 @@
                         {{ __('menu.about_me') }}
                     </x-nav-link>
                     @can('viewAdmin', \App\Models\User::class)
-                        <x-nav-link :navigate='false' href="{{ route('filament.admin.auth.login') }}"
-                                    :active="request()->routeIs('filament.admin.auth.login')">
+                        <x-nav-link :navigate='false' href="{{ route('login') }}"
+                                    :active="request()->routeIs('login')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     @endcan
