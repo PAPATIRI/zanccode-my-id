@@ -17,6 +17,7 @@ class DashboardController extends Controller
         $users = User::all();
         $categories = Category::all();
         $comments = Comment::all();
+        $user = auth()->user();
 
         return view('admin.dashboard', [
             'posts' => $posts,

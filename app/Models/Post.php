@@ -4,24 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $fillable = ['user_id', 'title', 'slug', 'image', 'body', 'published_at', 'featured', 'status'];
 
-    const PUBLISHED='PUBLISHED';
-    const DRAFT='DRAFT';
+    const PUBLISHED = 'PUBLISHED';
+    const DRAFT = 'DRAFT';
 
-    const STATUS_DEFAULT=self::DRAFT;
-    const STATUS=[
+    const STATUS_DEFAULT = self::DRAFT;
+    const STATUS = [
         self::PUBLISHED => 'Published',
-        self::DRAFT=>'Draft'
+        self::DRAFT => 'Draft'
     ];
 
     public function author()
@@ -34,11 +32,13 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function likes(){
+    public function likes()
+    {
         return $this->belongsToMany(User::class, 'post_like')->withTimestamps();
     }
 
@@ -70,8 +70,10 @@ class Post extends Model
             //order by like count, likes->relationship name, _ , count->action query
             ->orderBy("likes_count", 'desc');
     }
-    public function scopeSearch($query, $search = ''){
-        $query->where('title', 'like', "%$search%" );
+
+    public function scopeSearch($query, $search = '')
+    {
+        $query->where('title', 'like', "%$search%");
     }
 
     public function getReadingTime()
@@ -90,6 +92,13 @@ class Post extends Model
         $isUrl = str_contains($this->image, 'http');
 
         return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
+    }
+
+    //make delete cascade in categories_post table
+    public function forceDelete()
+    {
+        $this->categories()->detach();
+        parent::forceDelete();
     }
 
 }

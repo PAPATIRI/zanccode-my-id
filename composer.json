@@ -9,15 +9,18 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "codeat3/blade-radix-icons": "^1.7",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image-laravel": "^1.2",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.2",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "mallardduck/blade-boxicons": "^2.4",
-        "owenvoke/blade-fontawesome": "^2.6"
+        "owenvoke/blade-fontawesome": "^2.6",
+        "unisharp/laravel-filemanager": "^2.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",

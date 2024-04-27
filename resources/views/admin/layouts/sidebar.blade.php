@@ -1,9 +1,9 @@
-<aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
-       class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+<aside x-cloak="true" :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
+       class="absolute left-0 top-0 z-99 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
        @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
-    <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <a href="{{route('admin.dashboard')}}" class="font-serif uppercase text-4xl font-bold text-indigo-500">
+    <div class="flex items-center justify-between gap-2 px-10 py-3">
+        <a href="{{route('admin.dashboard')}}" class="font-serif font-medium uppercase text-4xl text-indigo-500">
             zanccode
             <div class="h-1 mt-1 w-full bg-indigo-500 rounded"></div>
         </a>
@@ -34,7 +34,7 @@
 
                     <!-- Menu Item Tables -->
                     <li>
-                        <a wire:navigate class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="{{route('admin.post')}}">
+                        <a wire:navigate class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="{{route('admin.posts')}}">
                             @include('admin.layouts.includes.svg-calender')
                             Artikel
                         </a>
@@ -44,7 +44,7 @@
                     <!-- Menu Item Categories -->
                     <li>
                         <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-                           href="#">
+                           href="{{route('admin.categories')}}">
                             @include('admin.layouts.includes.svg-category')
                             Category
                         </a>

@@ -1,7 +1,7 @@
 <div class="ms-3 relative flex space-x-4">
     @can('viewAdmin', \App\Models\User::class)
         <x-nav-link :navigate='false' href="{{ route('admin.dashboard') }}"
-                    :active="request()->routeIs('admin/dashboard')">
+                    :active="request()->routeIs('admin.dashboard')">
             {{ __('Dashboard') }}
         </x-nav-link>
     @endcan

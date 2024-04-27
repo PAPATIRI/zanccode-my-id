@@ -32,5 +32,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/admin/dashboard',[\App\Http\Controllers\Admin\DashboardController::class, 'index'] )->name('admin.dashboard');
-    Route::get('/admin/post', [\App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.post');
+    Route::get('/admin/posts', [\App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.posts');
+    Route::get('/admin/posts/create', \App\Livewire\Admin\Post\CreatePost::class)->name('admin.posts.create');
+    Route::get('/admin/posts/{post}', \App\Livewire\Admin\Post\ShowPost::class)->name('admin.posts.show');
+    Route::get('/admin/posts/{postId}/edit', \App\Livewire\Admin\Post\EditPost::class)->name('admin.posts.edit');
+    Route::get('/admin/categories', \App\Livewire\Admin\Category\CategoryList::class)->name('admin.categories');
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum', config('jetstream.auth_session'), 'verified', 'web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
