@@ -41,13 +41,6 @@
                                 My Profile
                             </a>
                         </li>
-                        <li>
-                            <a href="#"
-                               class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
-                                @include('admin.layouts.includes.svg-setting')
-                                Account Settings
-                            </a>
-                        </li>
                     </ul>
                     <form method="POST" action="{{ route('logout') }}" x-data>
                         @csrf

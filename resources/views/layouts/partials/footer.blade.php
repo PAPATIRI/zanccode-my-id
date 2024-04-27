@@ -1,4 +1,4 @@
-<footer class="text-base space-x-4 flex items-center border-t border-gray-100 flex-wrap justify-center py-4 ">
+<footer class="text-base space-x-4 mt-20 flex items-center flex-wrap justify-center py-4 ">
     <div>
         @foreach(config('app.supported_locales') as $data)
             <a href="{{route('locale', $data['icon'])}}" class="text-gray-500 hover:text-yellow-500">

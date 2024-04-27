@@ -1,6 +1,6 @@
 <div>
     <div id="posts" class="px-3 lg:px-7 py-6">
-        <div class="flex justify-between items-center border-b border-gray-100">
+        <div class="flex justify-between items-center">
             <div class="flex items-center gap-4">
                 @if($search || $this->activeCategory)
                     <button wire:click="clearFilters()"
@@ -21,8 +21,8 @@
                     </p>
                 @endif
             </div>
-            <div id="filter-selector" class="flex items-center space-x-4 font-light">
-                <div class="flex items-center gap-2">
+            <div id="filter-selector" class="flex items-center space-x-4 font-normal">
+                <div class="flex items-center gap-2 text-base">
                     <x-checkbox wire:model.live="popular"/>
                     <x-label>{{__('blog.popular')}}</x-label>
                 </div>

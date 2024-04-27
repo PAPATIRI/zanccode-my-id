@@ -17,7 +17,7 @@
         </div>
     @endsection
     <div class="mb-10 w-full">
-        <div class="mb-16">
+        <div class="mb-20">
             <h2 class="mt-16 mb-5 text-base lg:text-lg font-serif text-slate-700 font-bold">{{__('home.featured_post')}}</h2>
             <div class="w-full">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
@@ -29,10 +29,9 @@
             <a class="mt-10 block text-center text-base lg:text-lg font-serif text-indigo-500 font-semibold"
                href="{{route('posts.index')}}">{{__('home.more_post')}}</a>
         </div>
-        <hr>
 
-        <h2 class="mt-16 mb-5 text-base lg:text-lg font-serif text-slate-700 font-bold">{{__('home.latest_post')}}</h2>
         <div class="w-full mb-5">
+            <h2 class="mt-16 mb-5 text-base lg:text-lg font-serif text-slate-700 font-bold">{{__('home.latest_post')}}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
                 @foreach($latestPost as $post)
                     <x-posts.post-card :post="$post" class="md:col-span-1 col-span-3"/>

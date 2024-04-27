@@ -5,7 +5,7 @@
                  alt="profil orang ganteng">
         </div>
         <div class="max-w-[550px] mx-auto">
-            <p class="text-lg lg:text-2xl font-bold font-serif mb-4">Syarif TH.</p>
+            <p class="text-lg lg:text-2xl font-bold font-serif text-slate-800 mb-4">Syarif TH.</p>
             <p class="text-base lg:text-lg text-slate-700 font-sans">Seorang pria tampan kelahiran
                 1997
                 di pedalaman Kalimantan Barat. Mencintai dunia software development dimulai ketika diajarkan membuat

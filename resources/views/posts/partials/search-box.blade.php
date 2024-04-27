@@ -1,6 +1,6 @@
 <div x-on:keyup.enter="$dispatch('search', {search:query})" x-data="{query: '{{request('search', '')}}'}" id="search-box">
     <div>
-        <h3 class="text-lg font-semibold text-slate-900 mb-3">{{__('blog.search')}}</h3>
+        <h3 class="text-lg text-slate-700 font-serif mb-3">{{__('blog.search')}}</h3>
         <div class="w-fit flex rounded-xl bg-slate-100 py-2 px-3 mb-3 items-center">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

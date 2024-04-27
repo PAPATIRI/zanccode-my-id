@@ -23,24 +23,24 @@
                 <ul class="mb-6 flex flex-col gap-1.5">
                     <!-- Menu Item Dashboard -->
                     <li>
-                        <a wire:navigate class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+                        <a wire:navigate
+                           class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
                            href="{{route('admin.dashboard')}}">
                             @include('admin.layouts.includes.svg-dashboard')
                             Dashboard
                         </a>
                     </li>
                     <!-- Menu Item Dashboard -->
-
-
                     <!-- Menu Item Tables -->
                     <li>
-                        <a wire:navigate class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4" href="{{route('admin.posts')}}">
+                        <a wire:navigate
+                           class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+                           href="{{route('admin.posts')}}">
                             @include('admin.layouts.includes.svg-calender')
                             Artikel
                         </a>
                     </li>
                     <!-- Menu Item Tables -->
-
                     <!-- Menu Item Categories -->
                     <li>
                         <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
@@ -50,38 +50,21 @@
                         </a>
                     </li>
                     <!-- Menu Item Categories -->
-
-                    <!-- Menu Item Profile -->
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                            @include('admin.layouts.includes.svg-user2')
-                            Penulis
-                        </a>
-                    </li>
-                    <!-- Menu Item Profile -->
-
-                    <!-- Menu Item Settings -->
-                    <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-                           href="#">
-                            @include('admin.layouts.includes.svg-setting')
-                            Settings
-                        </a>
-                    </li>
-                    <!-- Menu Item Settings -->
                 </ul>
             </div>
-
             <!-- Others Group -->
             <div>
                 <h3 class="mb-4 ml-4 text-sm font-medium text-bodydark2">OTHERS</h3>
                 <ul class="mb-6 flex flex-col gap-1.5">
                     <!-- Menu Item Auth Pages -->
-                    <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
-                       href="settings.html">
-                        @include('admin.layouts.includes.svg-logout')
-                        Keluar Akun
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}" x-data>
+                        @csrf
+                        <a class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+                           href="{{route('logout')}}" @click.prevent="$root.submit()">
+                            @include('admin.layouts.includes.svg-logout')
+                            Keluar Akun
+                        </a>
+                    </form>
                     <!-- Menu Item Auth Pages -->
                 </ul>
             </div>
