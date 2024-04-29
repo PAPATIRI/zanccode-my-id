@@ -140,12 +140,17 @@
             </form>
         </div>
     </div>
+    @push('head-js')
+        @assets
+        <script src="{{asset('/ckeditor4/ckeditor.js')}}"></script>
+        <script src="{{asset('/js/jquery-v3.7.1.min.js')}}"></script>
+        <script src="{{asset('/js/select2.min.js')}}"></script>
+        <script src="{{asset('/vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
+        @endassets
+    @endpush
 
     @push('js')
-        <script src="{{asset('/js/jquery-v3.7.1.min.js')}}"></script>
-        <script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
-        <script src="{{asset('/js/select2.min.js')}}"></script>
-        <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+        @script
         {{--select2 script--}}
         <script>
             $(document).ready(function () {
@@ -157,15 +162,24 @@
                 @this.set('selectedCategories', selectedValue)
                 })
                 //edit category part
-            @this.on('selectedCategoriesChanged', function () {
-                $('#select-category').trigger('change');
-            })
-            })
-        </script>
-
-        {{--Laravel file manager script--}}
-        <script>
-            $(document).ready(function () {
+                @this.on('selectedCategoriesChanged', function () {
+                    $('#select-category').trigger('change');
+                })
+                        {{--CKEditor script--}}
+                var options = {
+                        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+                        clipboard_handleImages: false,
+                        removePlugins: 'exportpdf'
+                    }
+                const editor = CKEDITOR.replace('body', options);
+                editor.on('change', function (event) {
+                    // editor.updateElement();
+                @this.set('body', event.editor.getData())
+                });
+                // laravel file manager
                 $('#lfm').filemanager('image');
 
                 $('#image').on('change', function (event) {
@@ -173,27 +187,6 @@
                 })
             })
         </script>
-
-        {{--CKEditor script--}}
-        <script>
-            $(document).ready(function () {
-                var options = {
-                    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-                    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-                    clipboard_handleImages: false,
-                    removePlugins: 'exportpdf'
-                }
-                if (!CKEDITOR.instances.editor) {
-                    const editor = CKEDITOR.replace('body', options);
-
-                    editor.on('change', function (event) {
-                        // editor.updateElement();
-                    @this.set('body', event.editor.getData())
-                    });
-                }
-            })
-        </script>
+        @endscript
     @endpush
 </div>

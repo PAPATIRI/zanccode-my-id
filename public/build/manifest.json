@@ -1,11 +1,15 @@
 {
   "resources/css/app.css": {
+<<<<<<< HEAD
     "file": "assets/app-DAFGJXeN.css",
+=======
+    "file": "assets/app-52yMM1R5.css",
+>>>>>>> new-feature
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-D2jpX1vH.js",
+    "file": "assets/app-DkDdL2UM.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
