@@ -23,6 +23,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{--    <link rel="stylesheet" href="{{asset('build/assets/app-52yMM1R5.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('build/assets/app-DAFGJXeN.css')}}">--}}
+    {{--    <script src="{{asset('build/assets/app-DkDdL2UM.js')}}"></script>--}}
 
     <!-- Styles -->
     @stack('css')

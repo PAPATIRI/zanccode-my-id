@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div>
-                    <div x-data="{ checkboxToggle: @json($featured) }" x-init="$watch('checkboxToggle', value => {
+                    <div x-data="{ checkboxToggle: @this.featured }" x-init="$watch('checkboxToggle', value => {
                             $nextTick(() => {
                                 @this.set('featured', value);
                             });
